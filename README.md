@@ -68,8 +68,16 @@ If there are any errors you will need to address them accordingly, commonly this
 ### 1. Build for Android
 
 ```shell
-react-native bundle --platform android --dev false --entry-file App.js
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
 ```
+
+If you run into an error try the following:
+
+1. Navigate to `android/app/src/main/assets`. If the asset folder does not exist then create it.
+2. If the asset folder exists then delete __index.android.bundle__ and __index.android.bundle.meta__ if they exist.
+3. Navigate to the android folder mad run `./gradlew clean`
+4. Run the shell command again
+
 
 ### 2. Build APK
 
